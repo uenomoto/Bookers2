@@ -1,8 +1,8 @@
 <%= render 'books/list',books: @books %>
 
-<div class ="col-md-8 offset-md-1">
+<div class="col-md-8 offset-md-1">
   <h2>Book detail</h2>
-  <table class="table table-user-show">
+  <table class="table">
     <tbody>
       <tr>
         <td>
@@ -12,22 +12,22 @@
           <% end %>
         </td>
         <td>
+          
           <%= @book.title %>
+         
         </td>
-        <td><%= @book.opinion %></td>
+        <tb><%= @book.opinion %></tb>
         <td>
           <% if @book.user == current_user %>
-          <%= link_to "Edit",edit_book_path(@book.id), class: "btn btn-sm btn-success" %>
+          <%= link_to "Edit",edit_book_path(@book), class: "btn btn-sm btn-success edit_book" %>
           <% end %>
         </td>
         <td>
           <% if @book.user == current_user %>
-          <%= link_to "Destroy",book_path(@book.id),method: :delete,"data-confirm" => "本当に消しますか？" %>
+          <%= link_to "Destroy",book_path(@book),method: :delete,"data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger destroy_book"%>
           <% end %>
         </td>
       </tr>
     </tbody>
   </table>
-</div>
-</div>
 </div>

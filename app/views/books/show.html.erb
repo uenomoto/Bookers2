@@ -6,25 +6,21 @@
     <tbody>
       <tr>
         <td>
-          <%= link_to user_path(@user.id) do %>
+          <%= link_to user_path(@user) do %>
           <%= image_tag @user.get_profile_image(80,80) %><br>
           <%= @user.name %>
           <% end %>
         </td>
+        <td><%= link_to @book.title %></td>
+        <td><%= @book.opinion %></td>
         <td>
-          
-          <%= @book.title %>
-         
-        </td>
-        <tb><%= @book.opinion %></tb>
-        <td>
-          <% if @book.user == current_user %>
-          <%= link_to "Edit",edit_book_path(@book), class: "btn btn-sm btn-success edit_book" %>
+          <% if @book.user_id == current_user.id %>
+          <%= link_to "Edit",edit_book_path(@book), class: "btn btn-sm btn-success" %>
           <% end %>
         </td>
         <td>
-          <% if @book.user == current_user %>
-          <%= link_to "Destroy",book_path(@book),method: :delete,"data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger destroy_book"%>
+          <% if @book.user_id == current_user.id %>
+          <%= link_to "Destroy",book_path(@book),method: :delete,"data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger"%>
           <% end %>
         </td>
       </tr>

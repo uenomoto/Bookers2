@@ -1,2 +1,26 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<%= render 'books/list',books: @books %>
+
+<div class="col-md-8 offset-md-1">
+   <h2>Users</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>image</th>
+        <th>name</th>
+        <th colsapn="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= image_tag user.get_profile_image(80,80) %></td>
+        <td><%= user.name %></td>
+        <td>
+          <%= link_to "Show",user_path(user.id) %>
+        </td>
+      </tr>
+          <% end %>
+    </tbody>
+  </table>
+</div>
+
